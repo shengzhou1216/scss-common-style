@@ -1,0 +1,17 @@
+@mixin attr-x($attr,$attr-count:100,$attr-steps:1,$unit:'px'){
+    @for $i from 1 through $attr-count {
+        $attr-value: $attr-steps * $i;
+
+        .#{$attr}#{$attr-value} {
+            #{$attr}: #{$attr-value}#{$unit}
+        }
+    }
+}
+
+@include attr-x('margin');
+@include attr-x('margin-left');
+@include attr-x('margin-right');
+@include attr-x('margin-top');
+@include attr-x('margin-bottom');
+
+@include attr-x('width',$attr-steps:10);
